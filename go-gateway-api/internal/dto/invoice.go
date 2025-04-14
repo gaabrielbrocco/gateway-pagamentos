@@ -13,7 +13,7 @@ const (
 )
 
 type CreateInvoiceInput struct {
-	APIkey         string
+	APIKey         string
 	Amount         float64 `json:"amount"`
 	Description    string  `json:"description"`
 	PaymentType    string  `json:"payment_type"`
@@ -54,8 +54,8 @@ func ToInvoice(input CreateInvoiceInput, accountID string) (*domain.Invoice, err
 	)
 }
 
-func FromInvoice(invoice *domain.Invoice) InvoiceOutput {
-	return InvoiceOutput{
+func FromInvoice(invoice *domain.Invoice) *InvoiceOutput {
+	return &InvoiceOutput{
 		ID:             invoice.ID,
 		AccountID:      invoice.AccountID,
 		Amount:         invoice.Amount,
